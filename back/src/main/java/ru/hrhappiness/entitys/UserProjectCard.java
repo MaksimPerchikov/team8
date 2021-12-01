@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class UserProjectCard {
+
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
-
 
         private String status;
 
