@@ -108,7 +108,6 @@ public class UserProjectCardRestController {
 
         userProjectCardDao.createUserProjectCard(userProjectCard);
 
-       // userProjectCardDao.createUserProjectCard(userProjectCard);
 
 
         //условие,чтобы не создавать карточку при незаполненных полях
@@ -140,12 +139,6 @@ public class UserProjectCardRestController {
 
 
     }
-
-    /*@PostMapping(value = "/update/{id}")
-    public void updateUserProjectCArdById(@PathVariable Integer id,
-                                                               @RequestBody UserProjectCard userProjectCard){
-    userProjectCardDao.update(userProjectCard,id);
-    }*/
 
 
     //найти Карточку пользователя по Айди

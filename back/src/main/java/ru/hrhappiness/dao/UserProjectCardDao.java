@@ -14,12 +14,7 @@ public class UserProjectCardDao {
 
     private final UserProjectCardRepository userProjectCardRepository;
 
-
     UserProjectCard userProjectCard;
-
-
-    //private final UserProjectCardDraftRepository userProjectCardDraftRepository и UserProjectCardDraft userProjectCardDraft
-    // на них пока что не надо обращать внимание
 
     @Autowired
     public UserProjectCardDao(UserProjectCardRepository userProjectCardRepository) {
@@ -45,19 +40,6 @@ public class UserProjectCardDao {
     public void deleteAll(){
         userProjectCardRepository.deleteAll();
     }
-
-
- /*public void update(UserProjectCard userProjectCardUpdate,Integer id){
-        if(userProjectCard.getArchive().equals(true)){
-
-            if(userProjectCardDraft.getId().equals(id)){
-                userProjectCardRepository.save(userProjectCardUpdate);
-                userProjectCard.setId(id);
-                userProjectCardDraftRepository.deleteById(id);
-            }
-        }
-    }*/
-
 
 
     public String testMethod(){
