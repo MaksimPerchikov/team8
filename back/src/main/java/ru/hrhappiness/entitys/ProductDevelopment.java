@@ -1,35 +1,21 @@
 package ru.hrhappiness.entitys;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class ProductDevelopment {
     @Id
-    @GeneratedValue
-    private Integer id;
+    private String productDevelopmentName;
 
-    private String productDevelopment;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getProductDevelopment() {
-        return productDevelopment;
-    }
-
-    public void setProductDevelopment(String productDevelopment) {
-        this.productDevelopment = productDevelopment;
-    }
 }

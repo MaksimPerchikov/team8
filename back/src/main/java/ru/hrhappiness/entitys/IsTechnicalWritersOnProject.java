@@ -1,39 +1,21 @@
 package ru.hrhappiness.entitys;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Getter
+@Setter
 public class IsTechnicalWritersOnProject {
 
     @Id
-    @GeneratedValue
-    private Integer id;
-
-    private String isTechnicalWritersOnProject;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getAvailabilityOfTechnicalWriters() {
-        return isTechnicalWritersOnProject;
-    }
-
-    public void setAvailabilityOfTechnicalWriters(String availabilityOfTechnicalWriters) {
-        this.isTechnicalWritersOnProject = availabilityOfTechnicalWriters;
-    }
+    private String isTechnicalWritersOnProjectName;
 
 }

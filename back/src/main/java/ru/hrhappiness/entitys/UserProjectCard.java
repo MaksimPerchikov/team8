@@ -1,41 +1,87 @@
 package ru.hrhappiness.entitys;
-
-
 import lombok.*;
 
 import javax.persistence.*;
+
+import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Getter
 @Setter
+@ToString
 public class UserProjectCard {
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
+
+
         private String status;
+
+        private String customerName;
+        private String projectName;
+        private String projectType1;
+        private String projectType2;
+        private String projectType3;
+        private String projectType4;
+        private String functionalDirection;
+        private String subjectArea;
+        private String projectDescription;
+        private String projectTasks;
+
+        private String stageProject;
+        private LocalDateTime projectEndDate;
+        private String technologies;
+        private String stakeholdersQuantity;
+
+        private String developmentMethodology;
+
+        private String productDevelopment;
+
+        private Integer analyticsQuantity;
+        private Integer developersQuantity;
+
+        private String isTestersOnProject;
+
+        private String isTechnicalWritersOnProject;
+
+        private Integer membersQuantity;
+        private String location;
+        private String address;
+        private LocalDateTime dateOfReleasePeopleOnProject;
+        private String overtimes;
+        private String isDocumentationOnProject;
+        private String isGOST;
+        private String procedureForBringingPeopleToProject;
+        private String workTimeStart;
+        private String workTimeEnd;
+/*
+/*
+
+        @OneToOne
+        @JoinColumn(name = "status_status_project_name")
+        private StatusProject status;
+
         private String customerName;
         private String projectName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private ProjectTypeBooleanFirstCell projectTypeBooleanFirstCell;
+    @OneToOne
+    @JoinColumn(name = "project_type_1_projectType1Name")
+    private ProjectType1 projectType1;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    private TypeProjectFirstCell typeProjectFirstCell;
+    @OneToOne
+    @JoinColumn(name = "project_type_2_projectType1Name")
+    private ProjectType2 projectType2;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private TypeProjectSecondCell typeProjectSecondCell;
+    @OneToOne
+    @JoinColumn(name = "project_type_3_projectType1Name")
+    private ProjectType3 projectType3;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private TypeProjectThirdCell typeProjectThirdCell;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private TypeProjectFourthCell typeProjectFourthCell;*/
+    @OneToOne
+    @JoinColumn(name = "project_type_4_projectType1Name")
+    private ProjectType4 projectType4;
 
     private String functionalDirection;
 
@@ -45,28 +91,37 @@ public class UserProjectCard {
 
     private String projectTasks;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private StageProject projectStage;
+    @OneToOne
+    @JoinColumn(name = "stage_project_stageProjectName")
+    private StageProject stageProject;
 
     private LocalDateTime projectEndDate;
 
     private String technologies;
-    private Integer stakeholdersQuantity;
+    private String stakeholdersQuantity;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    DevelopmentMethodology developmentMethodology;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    ProductDevelopment productDevelopment;
+    @OneToOne
+    @JoinColumn(name = "development_methodology_developmentMethodologyName")
+    private DevelopmentMethodology developmentMethodology;
+
+
+    @OneToOne
+    @JoinColumn(name = "product_development_productDevelopmentName")
+    private ProductDevelopment productDevelopment;
+
+
 
     private Integer analyticsQuantity;
     private Integer developersQuantity;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "is_testers_on_project_isTestersOnProjectName")
     private IsTestersOnProject isTestersOnProject;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "is_technical_writers_on_project_isTechWritsOnProName")
     private IsTechnicalWritersOnProject isTechnicalWritersOnProject;
 
     private Integer membersQuantity;
@@ -75,12 +130,12 @@ public class UserProjectCard {
 
 
     private LocalDateTime dateOfReleasePeopleOnProject;
-    private String overtime;
+    private String overtimes;
     private String isDocumentationOnProject;
     private String isGOST;
     private String procedureForBringingPeopleToProject;
     private String workTimeStart;
-    private String workTimeEnd;
+    private String workTimeEnd;*/
 
 
 }

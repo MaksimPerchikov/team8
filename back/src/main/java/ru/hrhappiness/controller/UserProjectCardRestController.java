@@ -1,5 +1,6 @@
 package ru.hrhappiness.controller;
 
+import ch.qos.logback.core.hook.DelayingShutdownHook;
 import jdk.nashorn.internal.runtime.Context;
 import net.bytebuddy.dynamic.DynamicType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +31,84 @@ public class UserProjectCardRestController {
     @PostMapping
     public void createUserCard(@RequestBody UserProjectCard userProjectCard){
 
-       /* if (userProjectCard.getProjectTypeBooleanFirstCell().getId().equals(1)){
-           userProjectCard.getProjectTypeBooleanFirstCell().setName();
-            userProjectCardDao.createUserProjectCard(userProjectCard);
-        }else if(userProjectCard.getProjectTypeBooleanFirstCell().getId().equals(1)){
-*/
-          //  userProjectCard.getProjectTypeBooleanFirstCell().setTAndM(false);
-            userProjectCardDao.createUserProjectCard(userProjectCard);
+        if(userProjectCard.getStatus().equals("В работе")){
+            userProjectCard.setStatus("В работе");
+        }else if(userProjectCard.getStatus().equals("Чернивок")){
+            userProjectCard.setStatus("Чернивок");
+        }else if(userProjectCard.getStatus().equals("Архив")){
+            userProjectCard.setStatus("Архив");
+        }else userProjectCard.setStatus("Error");
+
+
+        if (userProjectCard.getProjectType1().equals("Fix")){
+            userProjectCard.setProjectType1("Fix");
+        }else if(userProjectCard.getProjectType1().equals("T&M")) {
+            userProjectCard.setProjectType1("T&M");
+        }else userProjectCard.setProjectType1("Error");
+
+
+        if(userProjectCard.getProjectType2().equals("ПО")){
+            userProjectCard.setProjectType2("ПО");
+        }else if(userProjectCard.getProjectType2().equals("ПАК")){
+            userProjectCard.setProjectType2("ПАК");
+        }else userProjectCard.setProjectType2("Error");
+
+
+        if(userProjectCard.getProjectType3().equals("MVP")){
+            userProjectCard.setProjectType3("MVP");
+        }else if(userProjectCard.getProjectType3().equals("не MVP")){
+            userProjectCard.setProjectType3("не MVP");
+        }else userProjectCard.setProjectType3("Error");
+
+        if(userProjectCard.getProjectType4().equals("Новый")){
+            userProjectCard.setProjectType4("Новый");
+        }else if(userProjectCard.getProjectType4().equals("Модернизированный")){
+            userProjectCard.setProjectType4("Модернизированный");
+        }else userProjectCard.setProjectType1("Error");
+
+
+        if(userProjectCard.getStageProject().equals("Инициация")){
+            userProjectCard.setStageProject("Инициация");
+        }
+         else if( userProjectCard.getStageProject().equals("Начало")){
+            userProjectCard.setStageProject("Начало");
+        }
+        else if( userProjectCard.getStageProject().equals("Середина")){
+            userProjectCard.setStageProject("Середина");
+        }
+        else if(userProjectCard.getStageProject().equals("Завершающая")) {
+            userProjectCard.setStageProject("Завершающая");
+        }else userProjectCard.setStageProject("Error");
+
+
+        if(userProjectCard.getDevelopmentMethodology().equals("Agile")){
+            userProjectCard.setDevelopmentMethodology("Agile");
+        }else if(userProjectCard.getDevelopmentMethodology().equals("WaterFall")){
+            userProjectCard.setDevelopmentMethodology("WaterFall");
+        }else userProjectCard.setDevelopmentMethodology("Error");
+
+
+        if(userProjectCard.getProductDevelopment().equals("Да")){
+            userProjectCard.setDevelopmentMethodology("Да");
+        }else if(userProjectCard.getProductDevelopment().equals("Нет")){
+            userProjectCard.setDevelopmentMethodology("Нет");
+        } else userProjectCard.setProductDevelopment("Error");
+
+        if(userProjectCard.getIsTestersOnProject().equals("Да")){
+            userProjectCard.setIsTestersOnProject("Да");
+        }else if(userProjectCard.getIsTestersOnProject().equals("Нет")){
+            userProjectCard.setIsTestersOnProject("Нет");
+        }else userProjectCard.setIsTestersOnProject("Error");
+
+        if(userProjectCard.getIsTechnicalWritersOnProject().equals("Да")){
+            userProjectCard.setIsTechnicalWritersOnProject("Да");
+        }else if(userProjectCard.getIsTechnicalWritersOnProject().equals("Нет")) {
+            userProjectCard.setIsTechnicalWritersOnProject("Нет");
+        }else userProjectCard.setIsTechnicalWritersOnProject("ERROR");
+
+        userProjectCardDao.createUserProjectCard(userProjectCard);
+
+       // userProjectCardDao.createUserProjectCard(userProjectCard);
 
 
         //условие,чтобы не создавать карточку при незаполненных полях
@@ -95,6 +167,10 @@ public class UserProjectCardRestController {
     public void deleteUserCardProjectById(@PathVariable Integer id){
         //дописать ИФ,если айди не найден
         userProjectCardDao.deleteById(id);
+    }
+    @DeleteMapping
+    public void deleteUserCardProjectAll(){
+        userProjectCardDao.deleteAll();
     }
 
 

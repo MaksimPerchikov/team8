@@ -42,6 +42,9 @@ public class UserProjectCardDao {
     public void deleteById(Integer id){
         userProjectCardRepository.deleteById(id);
     }
+    public void deleteAll(){
+        userProjectCardRepository.deleteAll();
+    }
 
 
    /* public void update(UserProjectCard userProjectCardUpdate,Integer id){
