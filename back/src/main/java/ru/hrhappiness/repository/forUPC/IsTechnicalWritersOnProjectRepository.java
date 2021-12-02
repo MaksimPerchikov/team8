@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.repository.forUPC;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,3 +7,4 @@ import ru.hrhappiness.entitys.userProjectCard.IsTechnicalWritersOnProject;
 @Repository
 public interface IsTechnicalWritersOnProjectRepository extends JpaRepository<IsTechnicalWritersOnProject,String> {
 }
+*/

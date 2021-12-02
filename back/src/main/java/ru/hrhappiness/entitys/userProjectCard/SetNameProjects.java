@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
@@ -21,3 +22,4 @@ public class SetNameProjects {
     private String name;
 
 }
+*/

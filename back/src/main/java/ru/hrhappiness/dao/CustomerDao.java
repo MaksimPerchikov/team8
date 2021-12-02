@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,3 +34,4 @@ public class CustomerDao {
         customerRepository.deleteAll();
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,3 +7,4 @@ import ru.hrhappiness.entitys.userProjectCard.SetNameProjects;
 @Repository
 public interface SetNameProjectsRepository extends JpaRepository<SetNameProjects,Long> {
 }
+*/

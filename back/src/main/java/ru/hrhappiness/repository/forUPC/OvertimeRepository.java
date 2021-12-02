@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.repository.forUPC;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,3 +8,4 @@ import ru.hrhappiness.entitys.userProjectCard.Overtime;
 @Repository
 public interface OvertimeRepository extends JpaRepository<Overtime,String> {
 }
+*/

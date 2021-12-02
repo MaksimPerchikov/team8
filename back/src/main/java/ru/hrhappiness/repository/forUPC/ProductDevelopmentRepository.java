@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.hrhappiness.entitys.userProjectCard.ProductDevelopment;
 
 @Repository
-public interface ProductDevelopmentRepository extends JpaRepository<ProductDevelopment,String> {
+public interface ProductDevelopmentRepository extends JpaRepository<ProductDevelopment,Long> {
 }

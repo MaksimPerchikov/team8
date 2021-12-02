@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
@@ -15,3 +16,4 @@ public class Overtime {
     @Id
     private String overtimeName;
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.repository.forUser;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,3 +7,4 @@ import ru.hrhappiness.entitys.user.User;
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
 }
+*/

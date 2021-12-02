@@ -1,10 +1,11 @@
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
-import ru.hrhappiness.entitys.customers.Customer;
+//import ru.hrhappiness.entitys.customers.Customer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @NoArgsConstructor
@@ -14,34 +15,41 @@ import java.time.LocalDateTime;
 @ToString
 public class UserProjectCard {
 
-       /* @Id
+        @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
-
-        private String status;
-
-        private String customerName;
         private String projectName;
-        private String projectType1;
-        private String projectType2;
-        private String projectType3;
-        private String projectType4;
+
+        private String status; //сделал
+
+        private String projectType1;//сделал
+        private String projectType2;//сделал
+        private String projectType3;//сделал
+        private String projectType4;//сделал
+
         private String functionalDirection;
         private String subjectArea;
         private String projectDescription;
         private String projectTasks;
 
-        private String stageProject;
+        private String stageProject;//сделал
+
         private LocalDateTime projectEndDate;
         private String technologies;
         private String stakeholdersQuantity;
 
-        private String developmentMethodology;
+        private String developmentMethodology;//сделал
 
         private String productDevelopment;
 
         private Integer analyticsQuantity;
         private Integer developersQuantity;
+}
+
+       /* private String customerName;
+
+
+
 
         private String isTestersOnProject;
 
@@ -59,21 +67,22 @@ public class UserProjectCard {
         private String workTimeEnd;*/
 
 
-
+/*
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
 
-
+        private String projectName;
         @OneToOne
         @JoinColumn(name = "status_status_project_name")
         private StatusProject status;
+
 
         @OneToOne
         @JoinColumn(name = "customer_name_id")
         private Customer customerName;
 
-        private String projectName;
+
 
     @OneToOne
     @JoinColumn(name = "project_type_1_projectType1Name")
@@ -148,6 +157,5 @@ public class UserProjectCard {
     private String procedureForBringingPeopleToProject;
     private String workTimeStart;
     private String workTimeEnd;
-
-
-}
+   }
+*/

@@ -15,6 +15,8 @@ import javax.persistence.Id;
 @ToString
 public class ProductDevelopment {
     @Id
+    private Long id;
+
     private String productDevelopmentName;
 
 

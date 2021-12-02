@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,3 +33,4 @@ public class SetNameProjectDao {
         setNameProjectsDao.deleteAllSNP();
     }
 }
+*/

@@ -15,5 +15,8 @@ import javax.persistence.Id;
 public class ProjectType2 {
 
     @Id
+    private Long id;
+
     private String projectType2Name;
 }
+

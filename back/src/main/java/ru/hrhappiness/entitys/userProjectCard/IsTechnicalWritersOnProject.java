@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
@@ -18,4 +19,4 @@ public class IsTechnicalWritersOnProject {
     @Id
     private String isTechnicalWritersOnProjectName;
 
-}
+}*/

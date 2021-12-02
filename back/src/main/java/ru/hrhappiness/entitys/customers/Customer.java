@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.entitys.customers;
 
 import lombok.*;
@@ -26,3 +27,4 @@ public class Customer {
     private Long numberPhoneResponsiblePerson;
     private String emailResponsiblePerson;
 }
+*/

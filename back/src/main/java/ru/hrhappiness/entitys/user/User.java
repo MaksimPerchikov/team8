@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.entitys.user;
 
 import lombok.*;
@@ -27,3 +28,4 @@ public class User {
     private String loginInTelegram;
 
 }
+*/

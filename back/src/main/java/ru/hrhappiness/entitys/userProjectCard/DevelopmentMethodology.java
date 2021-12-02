@@ -18,5 +18,7 @@ import javax.persistence.Id;
 public class DevelopmentMethodology {
 
     @Id
+    private Long id;
+
     private String developmentMethodologyName;
 }

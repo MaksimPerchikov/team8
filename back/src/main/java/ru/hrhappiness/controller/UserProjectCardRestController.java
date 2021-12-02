@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hrhappiness.dao.UserProjectCardDao;
 
-import ru.hrhappiness.entitys.userProjectCard.ProjectType1;
+/*import ru.hrhappiness.entitys.userProjectCard.ProjectType1;*/
 import ru.hrhappiness.entitys.userProjectCard.UserProjectCard;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class UserProjectCardRestController {
 
     private final UserProjectCardDao userProjectCardDao;
     UserProjectCard userProjectCard;
-    ProjectType1 projectType1Object;
+    /*ProjectType1 projectType1Object;*/
 
     @Autowired
     public UserProjectCardRestController(UserProjectCardDao userProjectCardDao){

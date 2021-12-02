@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.repository.customers;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,3 +10,4 @@ import ru.hrhappiness.entitys.customers.Customer;
 public interface CustomerRepository extends CrudRepository<Customer,Long>{
 
 }
+*/

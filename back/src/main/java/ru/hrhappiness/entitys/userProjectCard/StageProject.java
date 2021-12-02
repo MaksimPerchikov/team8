@@ -3,8 +3,6 @@ package ru.hrhappiness.entitys.userProjectCard;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -16,6 +14,8 @@ import javax.persistence.Id;
 public class StageProject {
 
     @Id
+    private Long id;
+
     private String stageProjectName;
 
 }

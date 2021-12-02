@@ -1,3 +1,4 @@
+/*
 package ru.hrhappiness.controller;
 
 import org.springframework.stereotype.Repository;
@@ -35,3 +36,4 @@ public class CustomersRestController {
         customerDao.deleteCustomer();
     }
 }
+*/

@@ -7,7 +7,7 @@ import ru.hrhappiness.entitys.userProjectCard.StageProject;
 
 
 @Repository
-public interface StageProjectRepository extends JpaRepository<StageProject,String> {
+public interface StageProjectRepository extends JpaRepository<StageProject,Long> {
 }
 
 

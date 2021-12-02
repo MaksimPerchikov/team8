@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.hrhappiness.entitys.userProjectCard.ProjectType4;
 
 @Repository
-public interface ProjectType4Repository extends JpaRepository<ProjectType4,String> {
+public interface ProjectType4Repository extends JpaRepository<ProjectType4,Long> {
 }
