@@ -1,0 +1,23 @@
+{
+  "status":"stat",
+"projectType1":{
+"projectType1Name":"T&M"
+},
+"projectType2":{
+"projectType2Name":"ПАК"
+},
+"projectType3":{
+"projectType3Name":"MVP"
+},
+"projectType4":{
+"projectType4Name":"Новый"
+},
+"stageProject":{
+"stageProjectName": "Инициация"
+},
+"customerName":"Aaa",
+"projectName":"Name",
+
+"developmentMethodology":{
+"developmentMethodologyName":"Agile"
+}
