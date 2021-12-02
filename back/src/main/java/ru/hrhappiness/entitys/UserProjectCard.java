@@ -1,9 +1,9 @@
-package ru.hrhappiness.entitys;
+package ru.hrhappiness.entitys.userProjectCard;
+
 import lombok.*;
+import ru.hrhappiness.entitys.customers.Customer;
 
 import javax.persistence.*;
-
-import java.sql.Time;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @ToString
 public class UserProjectCard {
 
-        @Id
+       /* @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
 
@@ -56,15 +56,23 @@ public class UserProjectCard {
         private String isGOST;
         private String procedureForBringingPeopleToProject;
         private String workTimeStart;
-        private String workTimeEnd;
-/*
-/*
+        private String workTimeEnd;*/
+
+
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Integer id;
+
 
         @OneToOne
         @JoinColumn(name = "status_status_project_name")
         private StatusProject status;
 
-        private String customerName;
+        @OneToOne
+        @JoinColumn(name = "customer_name_id")
+        private Customer customerName;
+
         private String projectName;
 
     @OneToOne
@@ -125,17 +133,21 @@ public class UserProjectCard {
     private IsTechnicalWritersOnProject isTechnicalWritersOnProject;
 
     private Integer membersQuantity;
-    private String location;
+    @OneToOne
+    @JoinColumn(name = "location_locationName")
+    private Location location;
     private String address;
 
 
     private LocalDateTime dateOfReleasePeopleOnProject;
-    private String overtimes;
+    @OneToOne
+    @JoinColumn(name = "overtimes_overtimesName")
+    private Overtime overtimes;
     private String isDocumentationOnProject;
     private String isGOST;
     private String procedureForBringingPeopleToProject;
     private String workTimeStart;
-    private String workTimeEnd;*/
+    private String workTimeEnd;
 
 
 }
