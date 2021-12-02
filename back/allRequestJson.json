@@ -1,0 +1,210 @@
+мой запрос
+{
+  "status":"В работе",
+  "projectName":"ProjectName",
+  "customerName":"NameCust",
+  "projectType1":"Fix",
+  "projectType2":"ПАК",
+  "projectType3":"MVP",
+  "projectType4":"Модернизированный",
+  "functionalDirection":"Test",
+  "subjectArea":"TestSubj",
+  "projectDescription":"ProjTest",
+  "projectTasks":"TestTasks",
+  "stageProject":"Середина",
+  "projectEndDate":"2021-11-30T14:45:29.000Z",
+  "technologies":"technologiesTest",
+  "stakeholdersQuantity":"TestStakeHolder",
+  "developmentMethodology":"Waterfall",
+  "productDevelopment":"Да",
+  "analyticsQuantity":2,
+  "developersQuantity":3,
+  "isTestersOnProject":"Да",
+  "isTechnicalWritersOnProject":"Нет",
+  "membersQuantity":"12",
+  "location":"В офисе",
+  "address":"Test",
+  "dateOfReleasePeopleOnProject":"2021-11-30T14:46:08.000Z",
+  "overtimes":"постоянно",
+  "isDocumentationOnProject":"Да",
+  "isGOST":"Нет",
+  "procedureForBringingPeopleToProject":"Test",
+  "workTimeStart": "19:33",
+  "workTimeEnd": "19:36"
+}
+
+
+TypeProject1
+
+
+localhost:8080/pt1
+
+{
+  "projectType1Name":"Fix"
+}
+{
+"projectType1Name":"T&M"
+}
+
+"projectType1":{
+"projectType1Name":"T&M"
+},
+
+"projectType1":"Fix"
+
+
+//////////////////////////////////////
+TypeProject2
+localhost:8080/pt2
+
+{
+"projectType2Name":"ПО"
+}
+{
+"projectType2Name":"ПАК"
+}
+
+"projectType2":{
+"projectType2Name":"ПАК"
+},
+
+//////////////////////////////////////////////
+TypeProject3
+localhost:8080/pt3
+
+{
+"projectType3Name":"MVP"
+}
+{
+"projectType3Name":"неMVP"
+}
+"projectType3":{
+"projectType3Name":"MVP"
+},
+
+///////////////////////////////////////////////
+TypeProject4
+localhost:8080/pt4
+
+{
+"projectType4Name":"Новый"
+}
+{
+"projectType4Name":"Модернизированный"
+}
+"projectType4":{
+"projectType4Name":"Новый"
+},
+
+///////////////////////////////////////////////
+StageProject
+localhost:8080/sp
+{
+"stageProjectName":"Инициация"
+}
+{
+"stageProjectName":"Начало"
+}
+{
+"stageProjectName":"Середина"
+}
+{
+"stageProjectName":"Завершающая"
+}
+
+"stageProject":{
+"stageProjectName":"Начало"
+}
+/////////////////////////////////////////////
+
+DevelopmentMethodology
+localhost:8080/dm
+{
+"developmentMethodologyName":"Agile"
+}
+
+{
+"developmentMethodologyName":"Waterfall"
+}
+///////////////////////////////////////////
+ProductDevelopment
+localhost:8080/pd
+{
+"productDevelopmentName":"Да"
+}
+{
+"productDevelopmentName":"Нет"
+}
+//////////////////////////////////////////
+StatusProject
+localhost:8080/susp
+{
+"statusProjectName":"В работе"
+}
+{
+"statusProjectName":"Черновик"
+}
+{
+"statusProjectName":"Архив"
+}
+
+//////////////////////////////////////////
+IsTestersOnProject
+{
+"isTestersOnProjectName":"Да"
+}
+{
+"isTestersOnProjectName":"Нет"
+}
+
+//////////////////////////////////
+IsTechnicalWritersOnProject
+
+{
+"isTechnicalWritersOnProjectName":"Да"
+}
+{
+"isTechnicalWritersOnProjectName":"Нет"
+}
+
+
+////////
+customer
+добавляем
+{
+"id":1,
+"companyName":"companyNameTest",
+"nameResponsiblePerson":"nameResponsiblePersonTest",
+"surnameResponsiblePerson":"surnameResponsiblePersonTest",
+"patronymicResponsiblePerson":"patronymicResponsiblePersonTest",
+"numberPhoneResponsiblePerson":"8981923",
+"emailResponsiblePerson":"emailResponsiblePerson@email.com"
+}
+запрос делаем
+{
+"status":"В работе",
+"projectName":"ProjectName",
+"customerName": {
+"id":1
+}
+}
+
+получаем
+[
+{
+"id": 14,
+"status": {
+"statusProjectName": "В работе"
+},
+"customerName": {
+"id": 1,
+"companyName": "companyNameTest",
+"nameResponsiblePerson": "nameResponsiblePersonTest",
+"surnameResponsiblePerson": "surnameResponsiblePersonTest",
+"patronymicResponsiblePerson": "patronymicResponsiblePersonTest",
+"numberPhoneResponsiblePerson": 8981923,
+"emailResponsiblePerson": "emailResponsiblePerson@email.com"
+},
+"projectName": "ProjectName"
+}
+]
