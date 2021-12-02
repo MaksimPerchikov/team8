@@ -3,8 +3,8 @@ package ru.hrhappiness.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.hrhappiness.entitys.UserProjectCard;
-import ru.hrhappiness.repository.UserProjectCardRepository;
+import ru.hrhappiness.entitys.userProjectCard.UserProjectCard;
+import ru.hrhappiness.repository.forUPC.UserProjectCardRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +42,15 @@ public class UserProjectCardDao {
     }
 
 
-    public String testMethod(){
-        return "testLine";
+
+    //изменить статус карточки на Архив:
+    public void updateInArchive(UserProjectCard userProjectCard){
+        userProjectCardRepository.save(userProjectCard);
+    }
+    public Optional<UserProjectCard> findByIdForArchive(Integer id){
+        return userProjectCardRepository.findById(id);
+    }
+    public void deleteByIdForArchive(Integer id){
+        userProjectCardRepository.deleteById(id);
     }
 }

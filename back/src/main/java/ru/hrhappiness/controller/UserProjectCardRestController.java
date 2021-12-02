@@ -1,8 +1,5 @@
 package ru.hrhappiness.controller;
 
-import ch.qos.logback.core.hook.DelayingShutdownHook;
-import jdk.nashorn.internal.runtime.Context;
-import net.bytebuddy.dynamic.DynamicType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,9 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hrhappiness.dao.UserProjectCardDao;
 
-import ru.hrhappiness.entitys.UserProjectCard;
+import ru.hrhappiness.entitys.userProjectCard.ProjectType1;
+import ru.hrhappiness.entitys.userProjectCard.UserProjectCard;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,16 +19,24 @@ public class UserProjectCardRestController {
 
     private final UserProjectCardDao userProjectCardDao;
     UserProjectCard userProjectCard;
+    ProjectType1 projectType1Object;
 
     @Autowired
     public UserProjectCardRestController(UserProjectCardDao userProjectCardDao){
         this.userProjectCardDao = userProjectCardDao;
+
     }
+    /*@PutMapping(value = "/{id}")
+    public UserProjectCard updateById(@PathVariable("id") Integer id){
+
+           }*/
 
     @PostMapping
     public void createUserCard(@RequestBody UserProjectCard userProjectCard){
+        userProjectCardDao.createUserProjectCard(userProjectCard);
 
-        if(userProjectCard.getStatus().equals("В работе")){
+////////////////////
+       /* if(userProjectCard.getStatus().equals("В работе")){
             userProjectCard.setStatus("В работе");
         }else if(userProjectCard.getStatus().equals("Чернивок")){
             userProjectCard.setStatus("Чернивок");
@@ -106,8 +111,9 @@ public class UserProjectCardRestController {
             userProjectCard.setIsTechnicalWritersOnProject("Нет");
         }else userProjectCard.setIsTechnicalWritersOnProject("ERROR");
 
-        userProjectCardDao.createUserProjectCard(userProjectCard);
 
+       userProjectCardDao.createUserProjectCard(userProjectCard);*/
+////////////////////////////////
 
 
         //условие,чтобы не создавать карточку при незаполненных полях
@@ -139,8 +145,6 @@ public class UserProjectCardRestController {
 
 
     }
-
-
     //найти Карточку пользователя по Айди
     @GetMapping(value = "{id}",consumes = {MediaType.ALL_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<UserProjectCard> findById(@PathVariable("id")Integer id){
@@ -165,13 +169,5 @@ public class UserProjectCardRestController {
     public void deleteUserCardProjectAll(){
         userProjectCardDao.deleteAll();
     }
-
-
-
-    @GetMapping(value = "/t")
-    public String test(){
-        return userProjectCardDao.testMethod();
-    }
-
 
 }
