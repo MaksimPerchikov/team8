@@ -1,4 +1,3 @@
-/*
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
@@ -17,6 +16,8 @@ import javax.persistence.Id;
 public class IsTechnicalWritersOnProject {
 
     @Id
+    private Long id;
+
     private String isTechnicalWritersOnProjectName;
 
-}*/
+}

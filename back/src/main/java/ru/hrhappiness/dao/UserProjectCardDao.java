@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.hrhappiness.entitys.userProjectCard.*;
 import ru.hrhappiness.repository.forUPC.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,10 @@ public class UserProjectCardDao {
     private final StageProjectRepository stageProjectRepository;
     private final DevelopmentMethodologyRepository developmentMethodologyRepository;
     private final ProductDevelopmentRepository productDevelopmentRepository;
-
+    private final IsTestersOnProjectRepository isTestersOnProjectRepository;
+    private final IsTechnicalWritersOnProjectRepository isTechnicalWritersOnProjectRepository;
+    private final LocationRepository locationRepository;
+    private final OvertimeRepository overtimeRepository;
     @Autowired
     public UserProjectCardDao(UserProjectCardRepository userProjectCardRepository,
                               StatusProjectRepository statusProjectRepository,
@@ -31,7 +35,11 @@ public class UserProjectCardDao {
                               ProjectType4Repository projectType4Repository,
                               StageProjectRepository stageProjectRepository,
                               DevelopmentMethodologyRepository developmentMethodologyRepository,
-                              ProductDevelopmentRepository productDevelopmentRepository) {
+                              ProductDevelopmentRepository productDevelopmentRepository,
+                              IsTestersOnProjectRepository isTestersOnProjectRepository,
+                              IsTechnicalWritersOnProjectRepository isTechnicalWritersOnProjectRepository,
+                              LocationRepository locationRepository,
+                              OvertimeRepository overtimeRepository) {
         this.userProjectCardRepository = userProjectCardRepository;
         this.statusProjectRepository = statusProjectRepository;
         this.projectType1Repository = projectType1Repository;
@@ -41,6 +49,10 @@ public class UserProjectCardDao {
         this.stageProjectRepository = stageProjectRepository;
         this.developmentMethodologyRepository = developmentMethodologyRepository;
         this.productDevelopmentRepository = productDevelopmentRepository;
+        this.isTestersOnProjectRepository = isTestersOnProjectRepository;
+        this.isTechnicalWritersOnProjectRepository = isTechnicalWritersOnProjectRepository;
+        this.locationRepository = locationRepository;
+        this.overtimeRepository = overtimeRepository;
 
     }
 
@@ -105,6 +117,42 @@ public class UserProjectCardDao {
                                 .filter(prd -> prd.getProductDevelopmentName().equals(userProjectCard.getProductDevelopment()))
                                         .findFirst();
         userProjectCard.setProductDevelopment(productDevelopmentOp.get().getProductDevelopmentName());
+
+        //isTestersInProject
+        List<IsTestersOnProject> isTestersOnProjectList =
+                isTestersOnProjectRepository.findAll();
+        Optional<IsTestersOnProject> isTestersOnProjectOp =
+                isTestersOnProjectList.stream()
+                                .filter(itop -> itop.getIsTestersOnProjectName()
+                                        .equals(userProjectCard.getIsTestersOnProject()))
+                                        .findFirst();
+        userProjectCard.setIsTestersOnProject(isTestersOnProjectOp.get().getIsTestersOnProjectName());
+
+        //IsTechnicalWritersOnProject
+        List<IsTechnicalWritersOnProject> isTechnicalWritersOnProjectList =
+                isTechnicalWritersOnProjectRepository.findAll();
+        Optional<IsTechnicalWritersOnProject> isTechnicalWritersOnProjectOp =
+                isTechnicalWritersOnProjectList.stream()
+                                .filter(itwop -> itwop.getIsTechnicalWritersOnProjectName()
+                                        .equals(userProjectCard.getIsTechnicalWritersOnProject()))
+                                        .findFirst();
+        userProjectCard.setIsTechnicalWritersOnProject(isTechnicalWritersOnProjectOp.get().getIsTechnicalWritersOnProjectName());
+
+
+        //Location
+        List<Location> locationList = locationRepository.findAll();
+        Optional<Location> locationOp = locationList.stream()
+                        .filter(location -> location.getLocationName().equals(userProjectCard.getLocation()))
+                                .findFirst();
+        userProjectCard.setLocation(locationOp.get().getLocationName());
+
+        //Overtime
+        List<Overtime> overtimesList = overtimeRepository.findAll();
+        Optional<Overtime> overtimeOp = overtimesList.stream()
+                        .filter(overtime -> overtime.getOvertimeName().equals(userProjectCard.getOvertimes()))
+                                .findFirst();
+        userProjectCard.setOvertimes(overtimeOp.get().getOvertimeName());
+
         userProjectCardRepository.save(userProjectCard);
     }
 

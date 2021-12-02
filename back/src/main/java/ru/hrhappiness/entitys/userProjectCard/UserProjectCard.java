@@ -20,6 +20,8 @@ public class UserProjectCard {
         private Integer id;
         private String projectName;
 
+        private String customerName;
+
         private String status; //сделал
 
         private String projectType1;//сделал
@@ -40,31 +42,37 @@ public class UserProjectCard {
 
         private String developmentMethodology;//сделал
 
-        private String productDevelopment;
+        private String productDevelopment;//сделал
 
         private Integer analyticsQuantity;
         private Integer developersQuantity;
-}
 
-       /* private String customerName;
+        private String isTestersOnProject;//сделал
 
-
-
-
-        private String isTestersOnProject;
-
-        private String isTechnicalWritersOnProject;
+        private String isTechnicalWritersOnProject;//сделал
 
         private Integer membersQuantity;
-        private String location;
+
+        private String location;//сделал
+
         private String address;
         private LocalDateTime dateOfReleasePeopleOnProject;
-        private String overtimes;
+
+        private String overtimes;//сделал
+
         private String isDocumentationOnProject;
         private String isGOST;
         private String procedureForBringingPeopleToProject;
         private String workTimeStart;
-        private String workTimeEnd;*/
+        private String workTimeEnd;
+
+}
+
+       /*
+
+
+
+        */
 
 
 /*

@@ -114,56 +114,62 @@ public class LoadDatabase {
         };
 
     }
-}
-/*
-
-
-
-
-    @Bean
-    CommandLineRunner initDataBaseLocation(LocationRepository locationRepository){
-        return args -> {
-            log.info("Preloading"+locationRepository
-                    .save(new Location("Удаленно")));
-            log.info("Preloading"+locationRepository
-                    .save(new Location("В офисе")));
-        };
-
-    }
-    @Bean
-    CommandLineRunner initDataBaseOvertime(OvertimeRepository overtimeRepository){
-        return args -> {
-            log.info("Preloading"+overtimeRepository
-                    .save(new Overtime("иногда")));
-            log.info("Preloading"+overtimeRepository
-                    .save(new Overtime("постоянно")));
-            log.info("Preloading"+overtimeRepository
-                    .save(new Overtime("нет")));
-        };
-    }
-
-
 
     @Bean
     CommandLineRunner initDataBaseIsTestersOnProject(IsTestersOnProjectRepository
                                                              isTestersOnProjectRepository){
         return args -> {
             log.info("Preloading"+isTestersOnProjectRepository
-                    .save(new IsTestersOnProject("Да")));
+                    .save(new IsTestersOnProject(1L,"Да")));
             log.info("Preloading"+isTestersOnProjectRepository
-                    .save(new IsTestersOnProject("Нет")));
+                    .save(new IsTestersOnProject(2L,"Нет")));
         };
     }
     @Bean
     CommandLineRunner initDataBaseIsTechnicalWritersOnProject(IsTechnicalWritersOnProjectRepository
-                                                              isTechnicalWritersOnProjectRepository) {
+                                                                      isTechnicalWritersOnProjectRepository) {
         return args -> {
             log.info("Preloading" + isTechnicalWritersOnProjectRepository
-                    .save(new IsTechnicalWritersOnProject("Да")));
+                    .save(new IsTechnicalWritersOnProject(1L,"Да")));
             log.info("Preloading" + isTechnicalWritersOnProjectRepository
-                    .save(new IsTechnicalWritersOnProject("Нет")));
+                    .save(new IsTechnicalWritersOnProject(2L,"Нет")));
         };
     }
+
+    @Bean
+    CommandLineRunner initDataBaseLocation(LocationRepository locationRepository){
+        return args -> {
+            log.info("Preloading"+locationRepository
+                    .save(new Location(1L,"Удаленно")));
+            log.info("Preloading"+locationRepository
+                    .save(new Location(2L,"В офисе")));
+        };
+
+    }
+
+    @Bean
+    CommandLineRunner initDataBaseOvertime(OvertimeRepository overtimeRepository){
+        return args -> {
+            log.info("Preloading"+overtimeRepository
+                    .save(new Overtime(1L,"иногда")));
+            log.info("Preloading"+overtimeRepository
+                    .save(new Overtime(2L,"постоянно")));
+            log.info("Preloading"+overtimeRepository
+                    .save(new Overtime(3L,"нет")));
+        };
+    }
+
+}
+/*
+
+
+
+
+
+
+
+
+
 
     @Bean
     CommandLineRunner initDataBaseSetNameProject(SetNameProjectsRepository

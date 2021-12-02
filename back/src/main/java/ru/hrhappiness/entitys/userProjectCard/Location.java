@@ -1,4 +1,3 @@
-/*
 package ru.hrhappiness.entitys.userProjectCard;
 
 import lombok.*;
@@ -14,6 +13,7 @@ import javax.persistence.Id;
 @Setter
 public class Location {
     @Id
+    private Long id;
+
     private String locationName;
 }
-*/
