@@ -6,4 +6,5 @@ import ru.hrhappiness.entitys.userProjectCard.UserProjectCard;
 
 @Repository
 public interface UserProjectCardRepository extends JpaRepository<UserProjectCard,Integer> {
+
 }

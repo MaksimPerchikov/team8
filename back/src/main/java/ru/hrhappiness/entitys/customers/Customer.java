@@ -1,8 +1,7 @@
-/*
+
 package ru.hrhappiness.entitys.customers;
 
 import lombok.*;
-import ru.hrhappiness.entitys.userProjectCard.SetNameProjects;
 
 import javax.persistence.*;
 
@@ -15,11 +14,10 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
+    @GeneratedValue
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "company_name_name")
-    private SetNameProjects companyName;
+    private String companyName;
 
     private String nameResponsiblePerson;
     private String surnameResponsiblePerson;
@@ -27,4 +25,4 @@ public class Customer {
     private Long numberPhoneResponsiblePerson;
     private String emailResponsiblePerson;
 }
-*/
+

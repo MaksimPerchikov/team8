@@ -1,4 +1,4 @@
-/*
+
 package ru.hrhappiness.entitys.user;
 
 import lombok.*;
@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @NoArgsConstructor
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @ToString
+@Table(name = "usr")
 public class User {
 
     @Id
@@ -20,6 +22,7 @@ public class User {
     private Integer id;
 
     private String name;
+    private String password;
     private String surname;
     private String patronymic;
     private String post;
@@ -28,4 +31,4 @@ public class User {
     private String loginInTelegram;
 
 }
-*/
+

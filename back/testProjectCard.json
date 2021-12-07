@@ -1,3 +1,4 @@
+уже не актуально!
 {
   "status": "В работе",
   "projectType1": "Fix",
@@ -35,7 +36,7 @@
 
 ///////////
 
-мой запрос
+уже не актуально!
 {
   "status":"В работе",
   "projectName":"ProjectName",
@@ -68,4 +69,39 @@
   "procedureForBringingPeopleToProject":"Test",
   "workTimeStart": "19:33",
   "workTimeEnd": "19:36"
+}
+
+мой запрос
+{
+  "status":"Draft",
+  "projectName":"2New",
+  "customerName":"compna",
+  "workModel":"T&M",
+  "developmentResult":"ПАК",
+  "productType":"не MVP",
+  "projectType":"Модернизированный",
+  "functionalDirection":"Test",
+  "subjectArea":"TestSubj",
+  "projectDescription":"ProjTest",
+  "projectTasks":"TestTasks",
+  "stageProject":"Середина",
+  "projectEndDate":"2021-11-30T14:45:29.000Z",
+  "technologies":"technologiesTest",
+  "stakeholdersQuantity":"TestStakeHolder",
+  "developmentMethodology":"Waterfall",
+  "productDevelopment":"Да",
+  "analyticsQuantity":"11",
+  "developersQuantity":"12",
+  "isTestersOnProject":"Да",
+  "isTechnicalWritersOnProject":"Нет",
+  "membersQuantity":"12",
+  "location":"В офисе",
+  "address":"Test",
+  "dateOfReleasePeopleOnProject":"2021-11-30T14:46:08.000Z",
+  "overtimes":"Постоянно",
+  "isDocumentationOnProject":"Да",
+  "isGOST":"Нет",
+  "procedureForBringingPeopleToProject":"Test",
+  "workTimeStart": "4:20",
+  "workTimeEnd": "4:21"
 }

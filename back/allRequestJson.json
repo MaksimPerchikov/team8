@@ -32,7 +32,40 @@
   "workTimeStart": "19:33",
   "workTimeEnd": "19:36"
 }
-
+новый запрос
+{
+  "status":"В работе",
+  "projectName":"MyProjName",
+  "customerName":"SecondNameCompany",
+  "projectType1":"Fix",
+  "projectType2":"ПАК",
+  "projectType3":"MVP",
+  "projectType4":"Модернизированный",
+  "functionalDirection":"Test",
+  "subjectArea":"TestSubj",
+  "projectDescription":"ProjTest",
+  "projectTasks":"TestTasks",
+  "stageProject":"Середина",
+  "projectEndDate":"2021-11-30T14:45:29.000Z",
+  "technologies":"technologiesTest",
+  "stakeholdersQuantity":"TestStakeHolder",
+  "developmentMethodology":"Waterfall",
+  "productDevelopment":"Да",
+  "analyticsQuantity":"11",
+  "developersQuantity":"12",
+  "isTestersOnProject":"Да",
+  "isTechnicalWritersOnProject":"Нет",
+  "membersQuantity":"12",
+  "location":"В офисе",
+  "address":"Test",
+  "dateOfReleasePeopleOnProject":"2021-11-30T14:46:08.000Z",
+  "overtimes":"Постоянно",
+  "isDocumentationOnProject":"Да",
+  "isGOST":"Нет",
+  "procedureForBringingPeopleToProject":"Test",
+  "workTimeStart": "4:20",
+  "workTimeEnd": "4:21"
+}
 
 TypeProject1
 
