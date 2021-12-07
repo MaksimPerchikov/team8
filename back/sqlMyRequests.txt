@@ -1,0 +1,2 @@
+Customer
+#insert into customer(id,company_name,name_responsible_person,surname_responsible_person,patronymic_responsible_person,number_phone_responsible_person,email_responsible_person) value(1,'a','a','a','a',123,'a')
