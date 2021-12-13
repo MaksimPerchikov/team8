@@ -1,6 +1,7 @@
 package ru.hrhappiness.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.net.HttpHeaders;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,12 +15,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
 public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {// первый фильтр, перехватывает запрос
 
     private final AuthenticationManager manager;
+    private final JwtProvider jwtProvider;
+    ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
@@ -48,11 +53,22 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
         }
     }
 
+    //после того,как пользователь авторизовался,вызывается этот метод
     @Override
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
+        String token = jwtProvider.createToken(authResult);//сгенерировали токен
+        response.addHeader(HttpHeaders.AUTHORIZATION,token);//засунули в хедер респонса
+        Map<String,String> mapNameTokenAndToken = new HashMap<>();
+
+        mapNameTokenAndToken.put("tokenName",token);
+
+
+        response.setContentType("application/json");
+        objectMapper.writeValue(response.getOutputStream(),mapNameTokenAndToken);
+
 
     }
 }

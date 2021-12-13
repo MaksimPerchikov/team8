@@ -14,6 +14,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import ru.hrhappiness.auth.ApplicationUserService;
+import ru.hrhappiness.jwt.JwtProvider;
+import ru.hrhappiness.jwt.JwtTokVerif;
 import ru.hrhappiness.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 
 
@@ -25,14 +27,15 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
     private final ApplicationUserService applicationUserService;
-
+    private final JwtProvider jwtProvider;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//У нас не генерируется СешнАйди, наш токен находится без состояния. Мы в памяти не храним информацию о какой-либо сессии.Делается это так
                 .and()
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(),jwtProvider))
+                .addFilterAfter(new JwtTokVerif(jwtProvider), JwtUsernameAndPasswordAuthenticationFilter.class)//пока что хуй знает,для чего добавил
                 .authorizeRequests()//
                 .antMatchers("/","index").permitAll()
                 .antMatchers("/hrhappiness/hi").permitAll()// этот эндпоинт доступен для всех
@@ -59,8 +62,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 .antMatchers("/hrhappiness/create").hasAuthority(USER_PROJECT_CARD_CREATE.getPermission())*/
 
                 .anyRequest()
-                .authenticated().and()
-                .httpBasic();//должны быть авторизованы
+                .authenticated();//должны быть авторизованы
                 /*.and().formLogin().permitAll()
                 .and().logout().permitAll()
                 .and()
