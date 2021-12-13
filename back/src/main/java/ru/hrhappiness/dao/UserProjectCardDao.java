@@ -1,7 +1,9 @@
 package ru.hrhappiness.dao;
 
 
-import org.jetbrains.annotations.NotNull;
+
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.hrhappiness.entitys.customers.Customer;
@@ -126,11 +128,11 @@ public class UserProjectCardDao {
             //StageProject
             List<StageProject> stageProjectList = stageProjectRepository.findAll();
             Optional<StageProject> stageProjectOp = stageProjectList.stream()
-                    .filter(stageP -> stageP.getStageProjectName().equals(userProjectCard.getStageProject()))
+                    .filter(stageP -> stageP.getStageProjectName().equals(userProjectCard.getProjectStage()))
                     .findFirst();
-            userProjectCard.setStageProject(stageProjectOp.get().getStageProjectName());
+            userProjectCard.setProjectStage(stageProjectOp.get().getStageProjectName());
         } catch (Exception e) {
-            userProjectCard.setStageProject("");
+            userProjectCard.setProjectStage("");
         }
         try {
             //DevelopmentMethodology
@@ -230,8 +232,6 @@ public class UserProjectCardDao {
             userProjectCard.setIsDocumentationOnProject("");
         }
 
-
-        //NOT! //пока что использую чисто строку customerName,без создания какого-либо как такового Заказчика(Customer)
         try {
             //Customer
             List<Customer> customerNameList = customerRepository.findAll();
@@ -242,132 +242,6 @@ public class UserProjectCardDao {
         } catch (Exception e) {
             userProjectCard.setCustomerName(null);
         }
-        /*//projectName
-            if(userProjectCard.getProjectName() == null){
-                userProjectCard.setProjectName("NotText");
-            }*/
-
-       /* //customerName
-        if(userProjectCard.getCustomerName().equals("")){
-            userProjectCard.setCustomerName("");
-        }
-
-        //functionDirection
-        if(userProjectCard.getFunctionalDirection().isEmpty()){
-            userProjectCard.setFunctionalDirection(null);
-        }
-
-        //subjectArea
-        if(userProjectCard.getSubjectArea().isEmpty()){
-            userProjectCard.setSubjectArea(null);
-        }
-
-        //projectDescription
-        if(userProjectCard.getProjectDescription().isEmpty()){
-            userProjectCard.setProjectDescription(null);
-        }
-
-        //projectTasks
-        if(userProjectCard.getProjectTasks().isEmpty()){
-            userProjectCard.setProjectTasks(null);
-        }*/
-
-       /* //projectEndDate
-        try {
-            String projectEndDateText = userProjectCard.getProjectEndDate().toString();
-            if(projectEndDateText.isEmpty()){
-                throw new Exception("Error!ProjectEndDate not have value!");
-            }
-        }catch (Exception e){
-            userProjectCard.setProjectEndDate(null);
-        }*/
-
-        /*//technologies
-        if(userProjectCard.getTechnologies().isEmpty()){
-            userProjectCard.setTechnologies(null);
-        }
-
-        //stakeholdersQuantity
-        if(userProjectCard.getStakeholdersQuantity().isEmpty()){
-            userProjectCard.setStakeholdersQuantity(null);
-        }*/
-
-
-        //analyticsQuantity
-        /*try {
-            if(userProjectCard.getAnalyticsQuantity() == null){
-                userProjectCard.setAnalyticsQuantity(null);
-            }
-        }catch (Exception e){
-            userProjectCard.setAnalyticsQuantity(null);
-        }*/
-
-
-        //developersQuantity
-       /* try{
-            if(userProjectCard.getDevelopersQuantity() == null){
-                userProjectCard.setDevelopersQuantity(null);
-            }
-        }catch (Exception e){
-            userProjectCard.setDevelopersQuantity(null);
-        }*/
-
-      /*  //membersQuantity
-        try {
-            if(userProjectCard.getMembersQuantity() == null){
-                userProjectCard.setMembersQuantity(null);
-            }
-        }catch (Exception e){
-            userProjectCard.setMembersQuantity("");
-        }*/
-
-
-
-        /*//address
-        if(userProjectCard.getAddress().isEmpty()){
-            userProjectCard.setAddress("");
-        }*/
-
-        //dateOfReleasePeopleOnProject
-       /* try{
-            String dateOfReleasePeopleOnProjectText = userProjectCard.getDateOfReleasePeopleOnProject().toString();
-            if(dateOfReleasePeopleOnProjectText.isEmpty()){
-                throw new Exception("Error! dateOfReleasePeopleOnProject not have value!");
-            }
-        }catch (Exception e){
-               userProjectCard.setDateOfReleasePeopleOnProject(null);
-        }*/
-
-
-        //isGOST
-       /* if(userProjectCard.getIsGOST().isEmpty()){
-            userProjectCard.setIsGOST("");
-        }
-
-        //procedureForBringingPeopleToProject
-        if(userProjectCard.getProcedureForBringingPeopleToProject().isEmpty()){
-            userProjectCard.setProcedureForBringingPeopleToProject("");
-        }*/
-
-        //workTimeStart
-        /*try{
-            String workTimeStart = userProjectCard.getWorkTimeStart().toString();
-            if(workTimeStart.isEmpty()){
-                throw new Exception("Error! Wrong format our this variable not have value!");
-            }
-        }catch (Exception e){
-            userProjectCard.setWorkTimeStart(null);
-        }*/
-
-        //workTimeEnd
-        /*try{
-            String workTimeEnd = userProjectCard.getWorkTimeEnd().toString();
-            if(workTimeEnd.isEmpty()){
-                throw new Exception("Error! Wrong format our this variable not have value!");
-            }
-        }catch (Exception e){
-            userProjectCard.setWorkTimeEnd(null);
-        }*/
 
         userProjectCardRepository.save(userProjectCard);
     }
@@ -375,7 +249,7 @@ public class UserProjectCardDao {
 
     //редактировать карточку "В работе" или "Черновик", но не архив
     //присвоить статус "Архив" карточке
-    public void updateInWorkAndDraft(Integer id, @NotNull UserProjectCard userProjectCard) throws Exception {
+    public void updateInWorkAndDraft(Integer id, UserProjectCard userProjectCard) throws Exception {
             if(userProjectCardRepository.findById(id).get().getStatus()
                     .toLowerCase(Locale.ROOT)
                     .equals("архив")
@@ -427,6 +301,18 @@ public class UserProjectCardDao {
        }
     }
 
+    //восстановление из архива
+    public UserProjectCard restoringFromArchiveToInWork(Integer id,UserProjectCard userProjectCard){
+        String str = userProjectCard.getStatus();
+        if(str.toLowerCase(Locale.ROOT).replaceAll("\\s", "").equals("архив") ||
+                str.toLowerCase().replaceAll("\\s", "").equals("archive")){
+            userProjectCardRepository.deleteById(id);
+            userProjectCard.setStatus("Черновик");
+         userProjectCardRepository.save(userProjectCard);
+        }
+        return userProjectCard;
+    }
+
     //Найти карточку по айди
     public Optional<UserProjectCard> findById(Integer id){
         return userProjectCardRepository.findById(id);
@@ -446,5 +332,6 @@ public class UserProjectCardDao {
     public void deleteAll(){
         userProjectCardRepository.deleteAll();
     }
+
 
 }

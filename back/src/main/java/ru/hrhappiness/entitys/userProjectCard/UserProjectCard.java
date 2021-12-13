@@ -65,7 +65,7 @@ public class UserProjectCard {
         private String projectTasks;
 
         @ApiModelProperty(value = "name of stage project ",example = "Начало")
-        private String stageProject;//сделал
+        private String projectStage;//сделал
 
      // private LocalDateTime projectEndDate;
         @ApiModelProperty(value = "name of project end date ",example = "2021-11-30T14:45:29.000Z")

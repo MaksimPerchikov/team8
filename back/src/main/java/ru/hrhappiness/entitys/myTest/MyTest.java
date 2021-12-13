@@ -11,14 +11,16 @@ import java.util.HashMap;
 @Getter
 @Setter
 @ToString
-public class MyTest extends HashMap<String,String> {
+public class MyTest{
     @Id
     @GeneratedValue
     private Long id;
 
-  //  @JoinColumn
-   // @OneToOne
-   // private Sur sur;
+
+    @OneToOne
+    @JoinColumn(name = "sur_surname")
+    private Sur sur;
 
     private String name;
+
 }

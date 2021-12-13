@@ -10,7 +10,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class DocketApi {
 
-    //объект Докет, ответственный за формирование документацию
+    //объект Докет, ответственный за формирование документации
     @Bean
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)

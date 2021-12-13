@@ -36,6 +36,7 @@ public class CustomersListDao {
         for (Customer customer: customerList) {
             if(customer.getCompanyName() != null){
                 customersNameC.add(customer.getCompanyName());
+
             }
         }
     return customersNameC;

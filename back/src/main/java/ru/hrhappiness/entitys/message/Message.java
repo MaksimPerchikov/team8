@@ -17,6 +17,7 @@ public class Message {
     @Id
     @GeneratedValue
     private Long id;
-    private String email;
-    private String message;
+    private String email;//кому отправляем
+    private String message;//само сообщение
+    private String subject;//тема сообщения
 }
