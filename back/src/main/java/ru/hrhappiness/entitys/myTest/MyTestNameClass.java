@@ -11,15 +11,14 @@ import java.util.HashMap;
 @Getter
 @Setter
 @ToString
-public class MyTest{
+@Table(name = "MyTestNameClass")
+public class MyTestNameClass {
     @Id
     @GeneratedValue
     private Long id;
 
-
     @OneToOne
-    @JoinColumn(name = "sur_surname")
-    private Sur sur;
+    private SurAfterName surAfterName;
 
     private String name;
 

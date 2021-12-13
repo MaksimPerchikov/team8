@@ -1,14 +1,13 @@
-package ru.hrhappiness.configuration.security;
+package ru.hrhappiness.securityConfig;
 
 import com.google.common.collect.Sets;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static ru.hrhappiness.configuration.security.ApplicationUserPermission.*;
+import static ru.hrhappiness.securityConfig.ApplicationUserPermission.*;
+
 //роли
 public enum ApplicationUserRole {
     ADMIN(Sets.newHashSet(USER_PROJECT_CARD_READ,
@@ -51,21 +50,24 @@ public enum ApplicationUserRole {
 
     NP(Sets.newHashSet(USER_PROJECT_CARD_READ_BY_ID));
 
-    private final Set<ApplicationUserPermission> permissionSet;
+    private final Set<ApplicationUserPermission> permissions;
 
-    ApplicationUserRole(Set<ApplicationUserPermission> permissionSet) {
-        this.permissionSet = permissionSet;
+    ApplicationUserRole(Set<ApplicationUserPermission> permissions) {
+        this.permissions = permissions;
     }
 
-    public Set<ApplicationUserPermission> getPermissionSet() {
-        return permissionSet;
+    public Set<ApplicationUserPermission> getPermissions() {
+        return permissions;
     }
 
+    //получение доступа у пользователей
     public Set<SimpleGrantedAuthority> getAuthorities(){
-        Set<SimpleGrantedAuthority> permissions = getPermissionSet().stream()
-                .map(permissionSet ->new SimpleGrantedAuthority(permissionSet.getPermission()))
+
+        Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
-        permissions.add(new SimpleGrantedAuthority("ROLE_"+this.name()));
+
+        permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
         return permissions;
     }
 

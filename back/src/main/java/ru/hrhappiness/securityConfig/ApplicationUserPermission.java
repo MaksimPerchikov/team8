@@ -1,4 +1,4 @@
-package ru.hrhappiness.configuration.security;
+package ru.hrhappiness.securityConfig;
 //разрешения
 public enum ApplicationUserPermission {
 
